@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="main.js"></script>
+    <script type="module" src="inicializacion.js"></script>
+    <script type="module" src="filaSimulacion.js"></script>
+    <script type="module" src="utils.js"></script>
+</head>
+<body>
+
+    <h1>TP FINAL VENDEDOR DE BICICLETAS</h1>
+
+    <form>
+
+        <fieldset>
+            <legend>Probabiliad más de 5</legend>
+            <label for="PMasDeCinco">
+                Probabilidad de vender más de 5 bicicletas en un día:
+                <input id="PMasDeCinco" type="number" min="0" max="1" step="0.01" value="0.3" disabled>
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Probabilidades de cantidades vendidas mayores a 5 en un día</legend>
+
+            <label for="PSeis">Probabilidad de vender 6 bicicletas:
+                <input id="PSeis" type="number" min="0" max="1" step="0.01" value="0.35" disabled>
+            </label>
+
+            <label for="PSiete">Probabilidad de vender 7 bicicletas:
+                <input id="PSiete" type="number" min="0" max="1" step="0.01" value="0.25" disabled>
+            </label>
+
+            <label for="POcho">Probabilidad de vender 8 bicicletas:
+                <input id="POcho" type="number" min="0" max="1" step="0.01" value="0.20" disabled>
+            </label>            
+
+            <label for="PNueve">Probabilidad de vender 9 bicicletas:
+                <input id="PNueve" type="number" min="0" max="1" step="0.01" value="0.15" disabled>
+            </label>
+
+            <label for="PDiez">Probabilidad de vender 10 bicicletas:
+                <input id="PDiez" type="number" min="0" max="1" step="0.01" value="0.05" disabled>
+            </label>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Probabilidades de ventas de tipos de bicicletas</legend>
+
+            <label for="PTipoA">Probabilidad de vender bicicleta tipo A:
+                <input id="PTipoA" type="number" min="0" max="1" step="0.01" value="0.5" disabled>
+            </label>
+
+            <label for="PTipoB">Probabilidad de vender bicicleta tipo B:
+                <input id="PTipoB" type="number" min="0" max="1" step="0.01" value="0.30" disabled>
+            </label>
+            
+            <label for="PTipoC">Probabilidad de vender bicicleta tipo C:
+                <input id="PTipoC" type="number" min="0" max="1" step="0.01" value="0.2" disabled>
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Ingresos adicionales por tipos de bicicletas</legend>
+
+            <label for="AdicionalA">Ingresos adicionales por bicicletas de tipo A:
+                <input id="AdicionalA" type="number" min="1" value="5" disabled>
+            </label>
+
+            <label for="AdicionalB">Ingresos adicionales por bicicletas de tipo B:
+                <input id="AdicionalB" type="number" min="1" value="8" disabled>
+            </label>
+
+            <label for="AdicionalC">Ingresos adicionales por bicicletas de tipo C:
+                <input id="AdicionalC" type="number" min="1" value="15" disabled>
+            </label>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Valores de inicialización</legend>
+
+            <label for="CantidadMeses">Cantidad de meses a simular:
+                <input id="CantidadMeses" type="number" min="1" value="3" disabled>
+            </label>
+
+            <label for="MostrarAPartir">Mostrar datos a partir del mes:
+                <input id="MostrarAPartir" type="number" min="1" value="1" disabled>
+            </label>
+
+        </fieldset>
+
+        <div class="divOpcion">
+
+            <p>Editar valores</p>
+            <div>
+                <input type="radio" id="editarVariables" name="editarVariables" value="si">
+                <label for="editarVariables">Si</label>
+            </div>
+            <div>
+                <input type="radio" id="noEditarVariables" name="editarVariables" value="no" checked>
+                <label for="noEditarVariables">No</label>
+            </div>
+
+        </div>
+        
+        <button type="button">Iniciar simulación</button>
+    </form>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>N° Linea</th>
+                <th>N° mes </th>
+                <th>Reloj (días)</th>
+                <th>RND</th>
+                <th>Más de 5 ventas</th>
+                <th>RND</th>
+                <th>Cantidad de ventas</th>
+                <th>RND</th>
+                <th>Tipo bici 6</th>
+                <th>Ingreso adicional bici 6</th>
+                <th>RND</th>
+                <th>Tipo bici 7</th>
+                <th>Ingreso adicional bici 7</th>
+                <th>RND</th>
+                <th>Tipo bici 8</th>
+                <th>Ingreso adicional bici 8</th>
+                <th>RND</th>
+                <th>Tipo bici 9</th>
+                <th>Ingreso adicional bici 9</th>
+                <th>RND</th>
+                <th>Tipo bici 10</th>
+                <th>Ingreso adicional bici 10</th>
+                <th>Ingreso adicional diario acumulado</th>
+                <th>Ingreso adicional mensual acumulado</th>
+            </tr>
+        </thead>
+
+        <tbody id="cuerpoDeTabla">
+
+
+        </tbody>
+
+    </table>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Ingreso adicional en el mes</th>
+                <th>Cantidad de ocurrencias</th>
+                <th>Probabilidad asociada</th>
+                <th>Probabilidad asociada en porcentaje (%)</th>
+            </tr>
+        </thead>
+
+
+        <tbody id="cuerpoDeTablaProbabilidades">
+
+        </tbody>
+    </table>
+</body>
+</html>

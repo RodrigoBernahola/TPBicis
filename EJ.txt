@@ -1,0 +1,121 @@
+LA VARIABLE ALEATORIA SERIA LA CANTIDAD ADICIONAL QUE HAY QUE PAGARLE POR MES --> ESTA DISTRIBUCION DE PROBABILIDAD LE ASIGNARA UNA PROBABILIDAD A CADA VALOR POSIBLE DE LA VARIABLE
+ALEATORIA
+
+SI HACE FALTA BLOQUEAR EL BOTON UNA VEZ GENERADOS LOS DATOS
+
+objetoFila = {
+
+	nroLinea,
+	Mes,
+	Reloj(dia)
+	RND VENTA MAS DE 5,
+	BOOL VENTA MAS DE 5,
+	RND CANTIDAD VENDIDA MAYOR A 5,
+	CANTIDAD VENDIDA MAYOR A 5,
+	RND TIPO BICI 6,
+	TIPO BICI 6,
+	RND TIPO BICI 7,
+	TIPO BICI 7,
+	RND TIPO BICI 8,
+	TIPO BICI 8,
+	RND TIPO BICI 9,
+	TIPO BICI 9,
+	RND TIPO BICI 10,
+	TIPO BICI 10,	
+	AC INGRESO ADICIONAL POR DIA,
+	AC INGRESO ADICIONAL POR MES
+}
+
+
+definir el ciclo y cómo simular los dias y meses
+
+
+parametrosModelo.probabilidadesDeTipos []
+
+parametrosModelo.ingresosAdicionalesPorTipo []
+
+
+	this.numeroLinea = numeroLinea;
+        this.nroMes = nroMes;
+        this.reloj = reloj;
+        this.rndVentaMayorACinco = rndVentaMayorACinco;
+        this.booleanoVentaMayorACinco = booleanoVentaMayorACinco;
+        this.rndCantidadAdicionalVendida = rndCantidadAdicionalVendida;
+        this.cantidadAdicionalVendida = cantidadAdicionalVendida;
+        this.rndTipoBici6 = rndTipoBici6;
+        this.tipoBici6 = tipoBici6;
+        this.ingresoAdicional6 = ingresoAdicional6;
+        this.rndTipoBici7 = rndTipoBici7;
+        this.tipoBici7 = tipoBici7;
+        this.ingresoAdicional7 = ingresoAdicional7;
+        this.rndTipoBici8 = rndTipoBici8;
+        this.tipoBici8 = tipoBici8;
+        this.ingresoAdicional8 = ingresoAdicional8;
+        this.rndTipoBici9 = rndTipoBici9;
+        this.tipoBici9 = tipoBici9;
+        this.ingresoAdicional9 = ingresoAdicional9;
+        this.rndTipoBici10 = rndTipoBici10;
+        this.tipoBici10 = tipoBici10;
+        this.ingresoAdicional10 = ingresoAdicional10
+        this.acIngresoAdicionalDiario = acIngresoAdicionalDiario;
+
+{
+acIngresoAdicionalDiario: 0
+​
+booleanoVentaMayorACinco: false
+​
+cantidadAdicionalVendida: "-"
+​
+ingresoAdicional10: 0
+​
+ingresoAdicional6: 0
+​
+ingresoAdicional7: 0
+​
+ingresoAdicional8: 0
+​
+ingresoAdicional9: 0
+​
+nroMes: 1
+​
+numeroLinea: 30
+​
+reloj: 30
+​
+rndCantidadAdicionalVendida: "0"
+​
+rndTipoBici10: "-"
+​
+rndTipoBici6: "-"
+​
+rndTipoBici7: "-"
+​
+rndTipoBici8: "-"
+​
+rndTipoBici9: "-"
+​
+rndVentaMayorACinco: 0.9432
+​
+tipoBici10: "-"
+​
+tipoBici6: "-"
+​
+tipoBici7: "-"
+​
+tipoBici8: "-"
+​
+tipoBici9: "-
+}
+
+CHEQUEAR LOS VALORES LIMITE DE LOS INTERVALOS
+dejar cabecera fija
+agregar linea divisora de meses
+
+INGRESO ADICIONAL EN EL MES  | CANTIDAD DE OCURRENCIAS | PROBABILIDAD
+
+AGREGAR VALOR AL ARRAY DE INGRESOS Y PUSHEAR UN 1 AL VECTOR DE OCURRENCIAS
+SI YA EXISTE OBTENER EL INDICE DE DICHO INGRESO Y AGREGAR UN 1 EN EL VECTOR DE OCURRENCIAS EN ESE INDICE
+[10,100,250]
+[3, 4]
+
+
