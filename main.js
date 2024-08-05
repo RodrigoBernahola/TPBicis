@@ -1,27 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     function alternarInputs(estadoInputs) {
         const inputs = document.querySelectorAll('input[type="number"]');
-        inputs.forEach( (input) => {
+        inputs.forEach((input) => {
             input.disabled = !estadoInputs;
-        })
+        });
     }
 
-    function eventHandler (e) {
-
+    function eventHandler(e) {
         let booleano = e.target.value === 'si';
         alternarInputs(booleano);
     }
 
     const radioButtons = document.querySelectorAll('input[type="radio"]');
-    radioButtons.forEach( (radio) => {
-        radio.addEventListener('click', (e) => eventHandler(e) );
-    })
+    radioButtons.forEach((radio) => {
+        radio.addEventListener('click', (e) => eventHandler(e));
+    });
 
     alternarInputs(false);
 
     function obtenerValoresParametros() {
-
         let cantidadDeMeses = parseFloat(document.getElementById('CantidadMeses').value);
         let mostrarAPartir = parseFloat(document.getElementById('MostrarAPartir').value);
 
@@ -30,43 +27,36 @@ document.addEventListener('DOMContentLoaded', () => {
             mostrarAPartir
         };
 
-        let probabilidadDeVenderMasDeCinco = parseFloat(document.getElementById('PMasDeCinco').value)
-        
+        let probabilidadDeVenderMasDeCinco = parseFloat(document.getElementById('PMasDeCinco').value);
 
         let probabilidadDeVenderSeis = parseFloat(document.getElementById('PSeis').value);
-        let probabiliadDeVenderSiete = parseFloat(document.getElementById('PSiete').value);
-        let probabiliadDeVenderOcho = parseFloat(document.getElementById('POcho').value);
-        let probabiliadDeVenderNueve = parseFloat(document.getElementById('PNueve').value);
-        let probabiliadDeVenderDiez = parseFloat(document.getElementById('PDiez').value);
-
+        let probabilidadDeVenderSiete = parseFloat(document.getElementById('PSiete').value);
+        let probabilidadDeVenderOcho = parseFloat(document.getElementById('POcho').value);
+        let probabilidadDeVenderNueve = parseFloat(document.getElementById('PNueve').value);
+        let probabilidadDeVenderDiez = parseFloat(document.getElementById('PDiez').value);
 
         let probabilidadDeTipoA = parseFloat(document.getElementById('PTipoA').value);
-        let probabiliadaDeTipoB = parseFloat(document.getElementById('PTipoB').value);
+        let probabilidadDeTipoB = parseFloat(document.getElementById('PTipoB').value);
         let probabilidadDeTipoC = parseFloat(document.getElementById('PTipoC').value);
-
 
         let ingresoAdicionalTipoA = parseFloat(document.getElementById('AdicionalA').value);
         let ingresoAdicionalTipoB = parseFloat(document.getElementById('AdicionalB').value);
         let ingresoAdicionalTipoC = parseFloat(document.getElementById('AdicionalC').value);
 
-
         const values = {
             probabilidadDeVenderMasDeCinco,
-
             probabilidadesDeCantidadDeVentas: [
                 probabilidadDeVenderSeis,
-                probabiliadDeVenderSiete,
-                probabiliadDeVenderOcho,
-                probabiliadDeVenderNueve,
-                probabiliadDeVenderDiez
+                probabilidadDeVenderSiete,
+                probabilidadDeVenderOcho,
+                probabilidadDeVenderNueve,
+                probabilidadDeVenderDiez
             ],
-
             probabilidadesDeTipos: [
                 probabilidadDeTipoA,
-                probabiliadaDeTipoB,
+                probabilidadDeTipoB,
                 probabilidadDeTipoC
             ],
-
             ingresosAdicionalesPorTipo: [
                 ingresoAdicionalTipoA,
                 ingresoAdicionalTipoB,
@@ -74,14 +64,26 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         };
 
-        const event =  new CustomEvent('simulationValuesUpdated', {detail: {datosCantidades, values}});
-        document.dispatchEvent(event);
+        return { datosCantidades, values };
     }
 
-    document.querySelector('button').addEventListener('click', (e) => {
-        e.preventDefault();
-        obtenerValoresParametros()
-    })
+    function validarProbabilidades(values) {
+        const sumaCantidadVentas = values.probabilidadesDeCantidadDeVentas.reduce((a, b) => a + b, 0);
+        const sumaTipos = values.probabilidadesDeTipos.reduce((a, b) => a + b, 0);
 
-    
-})
+        return sumaCantidadVentas === 1 && sumaTipos === 1;
+    }
+
+    document.querySelector('#iniciarSimulacion').addEventListener('click', (e) => {
+        e.preventDefault();
+        const { datosCantidades, values } = obtenerValoresParametros();
+
+        if (validarProbabilidades(values)) {
+            document.getElementById('errorMensaje').style.display = 'none';
+            const event = new CustomEvent('simulationValuesUpdated', { detail: { datosCantidades, values } });
+            document.dispatchEvent(event);
+        } else {
+            document.getElementById('errorMensaje').style.display = 'block';
+        }
+    });
+});

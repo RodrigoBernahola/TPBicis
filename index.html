@@ -17,7 +17,7 @@
     <form>
 
         <fieldset>
-            <legend>Probabiliad más de 5</legend>
+            <legend>Probabilidad más de 5</legend>
             <label for="PMasDeCinco">
                 Probabilidad de vender más de 5 bicicletas en un día:
                 <input id="PMasDeCinco" type="number" min="0" max="1" step="0.01" value="0.3" disabled>
@@ -69,15 +69,15 @@
             <legend>Ingresos adicionales por tipos de bicicletas</legend>
 
             <label for="AdicionalA">Ingresos adicionales por bicicletas de tipo A:
-                <input id="AdicionalA" type="number" min="1" value="5" disabled>
+                <input id="AdicionalA" type="number" min="0" value="5" disabled>
             </label>
 
             <label for="AdicionalB">Ingresos adicionales por bicicletas de tipo B:
-                <input id="AdicionalB" type="number" min="1" value="8" disabled>
+                <input id="AdicionalB" type="number" min="0" value="8" disabled>
             </label>
 
             <label for="AdicionalC">Ingresos adicionales por bicicletas de tipo C:
-                <input id="AdicionalC" type="number" min="1" value="15" disabled>
+                <input id="AdicionalC" type="number" min="0" value="15" disabled>
             </label>
 
         </fieldset>
@@ -109,7 +109,8 @@
 
         </div>
         
-        <button type="button">Iniciar simulación</button>
+        <button id="iniciarSimulacion" type="button">Iniciar simulación</button>
+        <div id="errorMensaje" style="color: red; display: none;">Las probabilidades deben sumar 1</div>
     </form>
 
     <table>
