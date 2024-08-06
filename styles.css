@@ -16,7 +16,7 @@ h1 {
 
 /* Estilos del Formulario */
 form {
-    margin: auto;
+    margin: 20px auto;
     max-width: 900px;
     background: #fff;
     padding: 20px;
@@ -81,10 +81,17 @@ button:hover {
 }
 
 /* Estilos de las Tablas */
+.table-container {
+    max-height: 700px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 40px 0;
     font-size: 0.9em;
     min-width: 800px;
     border: 1px solid #4d3e6b;
@@ -101,10 +108,13 @@ table th, table td {
 }
 
 table th {
+    position: sticky;
+    top: 0;
     background-color: #4d3e6b;
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
+    z-index: 1;
 }
 
 table tr:nth-of-type(even) {
